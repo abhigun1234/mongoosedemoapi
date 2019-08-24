@@ -2,29 +2,29 @@
 
 //connecting to database
 const mongoose=require('mongoose')
-mongoose.connect('mongodb://localhost/hotels').then(()=>
+mongoose.connect('mongodb://localhost/traveldb').then(()=>
 console.log('connected  to mongodb')
 )
 
 
-async function  addRoom()
+async function  addPlace()
 {    //console.log(itemName)
-    const roomSchema=new mongoose.Schema({
+    const placeSchema=new mongoose.Schema({
         
             name:String,
-            price:String,
+            distence:String,
             description:String
         })
-        const Room=mongoose.model('room',roomSchema)
+        const Places=mongoose.model('places',placeSchema)
         
         
-        const room=new Room({name:'super cool room',price:'15000',description:'super cool room'})
+        const place=new Places({name:'manali',distence:'3000',description:'manali in himachal'})
       
-      const result= await room.save()
+        const result= await place.save()
         console.log(result)
         
 
 }
 
-addRoom()
+addPlace()
 // createMenu()
